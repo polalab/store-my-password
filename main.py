@@ -37,7 +37,7 @@ async def find_writable_device():
                         if "write" in char.properties or "write_without_response" in char.properties:
                             print(f"🎯 Found writable characteristic: {char.uuid}")
                             print(f"✨ Device: {device.name or 'Unknown'} ({device.address})")
-                            await client.write_gatt_char(char.uuid, MESSAGE.encode())
+                            await client.write_gatt_char(char.uuid, MESSAGE.encode(), response=False)
                             print("✅ Message sent!")
                             # return device.address, char.uuid  # Stop at the first match
         except Exception as e:
@@ -45,3 +45,5 @@ async def find_writable_device():
 
     print("❌ No writable characteristic found on any device.")
     return None, None
+
+

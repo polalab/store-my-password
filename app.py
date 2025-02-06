@@ -23,9 +23,9 @@ def save_password():
         print(password)
         # with open("passwords.txt", "a") as file:
         #     file.write(password + "\n")
-        return jsonify({"message": "Password saved successfully!"}), 200
+        return jsonify({"message": "🔥Password not saved but sent around;)))))🔥"}), 200
     else:
-        return jsonify({"message": "No password provided"}), 400
+        return jsonify({"message": "No password provided😔"}), 400
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)

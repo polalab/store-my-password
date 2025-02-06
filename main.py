@@ -3,8 +3,6 @@ from bleak import BleakScanner, BleakClient
 
 MESSAGE = "Hello from John..."
 
-DEVICES_THAT_WORKED = ["AD23D6E5-D431-26E6-EFE2-8234C46E4FB0", "2E5E49B6-E118-8DE1-2D8C-4CA765BCEB9C", "B6B03CF1-2351-8899-EF90-112C2EFF6D46", ]
-
 async def find_writable_device():
     print("🔍 Scanning for BLE devices...")
 
@@ -47,7 +45,3 @@ async def find_writable_device():
 
     print("❌ No writable characteristic found on any device.")
     return None, None
-
-
-# Run the search
-asyncio.run(find_writable_device())

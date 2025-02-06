@@ -2,7 +2,7 @@ import asyncio
 
 from flask import Flask, request, render_template, jsonify
 
-from working import send_to_specific_devices
+from main import find_writable_device
 
 # from flask_cors import CORS
 
@@ -19,10 +19,11 @@ def save_password():
     password = data.get('password')
 
     if password:
-        asyncio.run(send_to_specific_devices())
+        asyncio.run(find_writable_device())
+        print(password)
         # with open("passwords.txt", "a") as file:
         #     file.write(password + "\n")
-        # return jsonify({"message": "Password saved successfully!"}), 200
+        return jsonify({"message": "Password saved successfully!"}), 200
     else:
         return jsonify({"message": "No password provided"}), 400
 
